@@ -1,6 +1,7 @@
-// Import all of Bootstrap's CSS
-@import "bootstrap/scss/bootstrap";
-
 @use "./partials/reset.scss" as *;
 @use "./partials/variables.scss" as *;
 @use "./partials/mixin.scss" as *;
+
+// Import all of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
+
