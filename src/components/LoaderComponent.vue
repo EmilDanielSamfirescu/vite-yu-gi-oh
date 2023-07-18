@@ -33,7 +33,13 @@ export default {
     animation-duration: 3s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    margin-top: 100px;
+    width: 300px;
+    margin: 100px auto;
+
+    img {
+        width: 100%;
+    }
+
     @keyframes giro-infinito {
         0% {
             transform: rotate(0deg);

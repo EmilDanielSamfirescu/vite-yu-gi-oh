@@ -3,6 +3,7 @@ import HeaderComponent from './components/HeaderComponent.vue';
 import MainComponent from './components/MainComponent.vue';
 import LoaderComponent from './components/LoaderComponent.vue';
 import axios from 'axios'
+import {store} from './store'
 
 export default {
     components: {
@@ -12,18 +13,19 @@ export default {
     },
     data (){
         return {
-            cards: {},
+            cards: [],
             isLoad: false,
+            store
         }
     },
     methods: {
         
     },
     created() {
-        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
+        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=200&offset=0')
         .then(response => {
             console.log(response.data.data);
-            this.cards = response.data.data;
+            this.store.cards = response.data.data;
         });
 
         setTimeout(() => {
@@ -40,7 +42,7 @@ export default {
     
     <div v-else>
         <HeaderComponent />
-        <MainComponent :cards="cards"/>
+        <MainComponent />
     </div>
     
 

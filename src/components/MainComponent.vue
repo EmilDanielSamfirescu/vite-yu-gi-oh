@@ -1,20 +1,16 @@
 <script >
+import {store} from '../store.js';
+
 export default {
     name: "MainComponent",
 data (){
     return {
-
+        store
     }
 },
 methods: {
 
 },
-props: {
-    cards: {
-        type: Array,
-        default: []
-        }
-}
 };
 </script>
 
@@ -33,11 +29,11 @@ props: {
             </select>
 
             <div class="founded">
-                Found {{cards.length}} Cards
+                Found {{store.cards.length}} Cards
             </div>
             <div class="my-row">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3"
-                        v-for="(singleCard, i) in cards" :key="i">
+                        v-for="(singleCard, i) in store.cards" :key="i">
                     <div class="card-container">
                         <div class="img-container img-fluid">
                             <img :src="singleCard.card_images[0].image_url" alt="singleCard.name">
