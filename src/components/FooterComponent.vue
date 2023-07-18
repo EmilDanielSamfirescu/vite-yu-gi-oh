@@ -1,14 +1,14 @@
 <script >
 export default {
     name: "FooterComponent",
-data (){
-    return {
+    data (){
+        return {
+
+        }
+    },
+    methods: {
 
     }
-},
-methods: {
-
-}
 };
 </script>
 

@@ -1,22 +1,23 @@
 <script >
 import HeaderComponent from './components/HeaderComponent.vue';
 import MainComponent from './components/MainComponent.vue';
-import FooterComponent from './components/FooterComponent.vue';
+import LoaderComponent from './components/LoaderComponent.vue';
 import axios from 'axios'
 
 export default {
     components: {
         HeaderComponent,
         MainComponent,
-        FooterComponent
+        LoaderComponent
     },
     data (){
         return {
-            cards: {}
+            cards: {},
+            isLoad: false,
         }
     },
     methods: {
-
+        
     },
     created() {
         axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
@@ -24,16 +25,25 @@ export default {
             console.log(response.data.data);
             this.cards = response.data.data;
         });
+
+        setTimeout(() => {
+        this.isLoad = true;
+        }, 4000);
     },
     };
 </script>
 
 <template>
-    <HeaderComponent />
 
-    <MainComponent :cards="cards" />
+    
+    <LoaderComponent v-if="isLoad == false"/>
+    
+    <div v-else>
+        <HeaderComponent />
+        <MainComponent :cards="cards"/>
+    </div>
+    
 
-    <FooterComponent />
 </template>
 
 <style lang="scss">

@@ -99,6 +99,10 @@ main {
             margin: 0 10px;
             line-height: 20px;
             height: 200px;
+
+            h2 {
+                color: white;
+            }
         }
     }
 }
