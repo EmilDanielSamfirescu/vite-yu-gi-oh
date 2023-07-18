@@ -20,12 +20,10 @@ methods: {
         <div class="container">
 
             <select class="form-select" aria-label="Default select example">
-                <option selected disabled>Select Archetype</option>
-                <option value="1">Alien</option>
-                <option value="2">Noble Knight</option>
-                <option value="3">Tainted Treasure</option>
-                <option value="4">Melodious</option>
-                <option value="5">Archfiend</option>
+                <option selected 
+                        disabled
+                        >Select Archetype</option>
+                <option v-for="(archeType, indexA) in store.archetype" :key="indexA" value="archeType.archetype_name">{{archeType.archetype_name}}</option>
             </select>
 
             <div class="founded">

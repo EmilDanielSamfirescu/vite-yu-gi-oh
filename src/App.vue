@@ -13,24 +13,29 @@ export default {
     },
     data (){
         return {
-            cards: [],
+            store,
             isLoad: false,
-            store
         }
     },
     methods: {
         
     },
     created() {
-        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=200&offset=0')
+        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
         .then(response => {
-            console.log(response.data.data);
+            // console.log(response.data.data);
             this.store.cards = response.data.data;
         });
 
         setTimeout(() => {
         this.isLoad = true;
-        }, 4000);
+        }, 1000);
+
+        axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+        .then(response => {
+            console.log(response.data);
+            this.store.archetype = response.data;
+        });
     },
     };
 </script>
